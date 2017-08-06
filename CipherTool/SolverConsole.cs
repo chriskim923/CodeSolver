@@ -27,21 +27,23 @@ namespace CipherTool
             inputsListbox.ValueMember = "Display";
         }
 
-        private void solveButtonClick(object sender, EventArgs e)
-        {
-            cache.Inputs.Add(new UserInput { Code = this.codeTextbox.Text });
-            inputsBinding.ResetBindings(false);
-            this.codeTextbox.Clear();
-        }
+       
 
         private void codeTextbox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                solveButtonClick(sender, e);
+                decodeButtonClick(sender, e);
                 e.SuppressKeyPress = true;
                 e.Handled = true;
             }
+        }
+
+        private void decodeButtonClick(object sender, EventArgs e)
+        {
+            cache.Inputs.Add(new UserInput { Code = this.codeTextbox.Text });
+            inputsBinding.ResetBindings(false);
+            this.codeTextbox.Clear();
         }
     }
 }

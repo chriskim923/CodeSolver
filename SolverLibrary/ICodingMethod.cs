@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace SolverLibrary
 {
-    interface IDecrypter
+    interface ICodingMethod
     {
-        string DecryptCode(string code);
-        string SolveStatus(string code);
+        string DecodeString(UserInput code);
     }
 }

@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.codeTextboxLabel = new System.Windows.Forms.Label();
-            this.solveButton = new System.Windows.Forms.Button();
+            this.decodeButton = new System.Windows.Forms.Button();
             this.codeTextbox = new System.Windows.Forms.TextBox();
             this.resultsDataView = new System.Windows.Forms.DataGridView();
             this.inputsListbox = new System.Windows.Forms.ListBox();
@@ -48,7 +48,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
             this.tableLayoutPanel1.Controls.Add(this.codeTextboxLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.solveButton, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.decodeButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.codeTextbox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.resultsDataView, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.inputsListbox, 1, 1);
@@ -79,20 +79,20 @@
             this.codeTextboxLabel.Text = "Code";
             this.codeTextboxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // solveButton
+            // decodeButton
             // 
-            this.solveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.decodeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.solveButton.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.solveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.solveButton.Location = new System.Drawing.Point(811, 3);
-            this.solveButton.Name = "solveButton";
-            this.solveButton.Size = new System.Drawing.Size(97, 28);
-            this.solveButton.TabIndex = 1;
-            this.solveButton.Text = "Solve";
-            this.solveButton.UseVisualStyleBackColor = false;
-            this.solveButton.Click += new System.EventHandler(this.solveButtonClick);
+            this.decodeButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.decodeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.decodeButton.Location = new System.Drawing.Point(811, 3);
+            this.decodeButton.Name = "decodeButton";
+            this.decodeButton.Size = new System.Drawing.Size(97, 28);
+            this.decodeButton.TabIndex = 1;
+            this.decodeButton.Text = "Decode";
+            this.decodeButton.UseVisualStyleBackColor = false;
+            this.decodeButton.Click += new System.EventHandler(this.decodeButtonClick);
             // 
             // codeTextbox
             // 
@@ -150,7 +150,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label codeTextboxLabel;
-        private System.Windows.Forms.Button solveButton;
+        private System.Windows.Forms.Button decodeButton;
         private System.Windows.Forms.TextBox codeTextbox;
         private System.Windows.Forms.DataGridView resultsDataView;
         private System.Windows.Forms.ListBox inputsListbox;
