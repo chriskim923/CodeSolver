@@ -13,7 +13,7 @@ namespace SolverLibrary
         public Decoder()
         {
             codingMethods = new List<ICodingMethod>();
-
+            codingMethods.Add(new FrancisBaconCodev1());
         }
 
         public string GetDecodedResults(UserInput code)

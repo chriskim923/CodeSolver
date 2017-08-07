@@ -27,8 +27,6 @@ namespace CipherTool
             inputsListbox.ValueMember = "Display";
         }
 
-       
-
         private void codeTextbox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -41,7 +39,7 @@ namespace CipherTool
 
         private void decodeButtonClick(object sender, EventArgs e)
         {
-            cache.Inputs.Add(new UserInput { Code = this.codeTextbox.Text });
+            cache.Inputs.Add(new UserInput { InputText = this.codeTextbox.Text });
             inputsBinding.ResetBindings(false);
             this.codeTextbox.Clear();
         }

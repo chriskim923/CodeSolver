@@ -36,7 +36,7 @@ namespace SolverLibrary
             {"10111", "Z" }
         };
 
-        public string DecodeText(UserInput code)
+        public string DecodeText(UserInput text)
         {
             return "a decoded string";
         }

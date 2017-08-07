@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decoder.cs" />
+    <Compile Include="FrancisBaconCodev1.cs" />
+    <Compile Include="ICodingMethod.cs" />
+    <Compile Include="IDecoder.cs" />
     <Compile Include="InputCache.cs" />
     <Compile Include="UserInput.cs" />
-    <Compile Include="IDecoder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

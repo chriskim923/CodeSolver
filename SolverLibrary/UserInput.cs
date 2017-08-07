@@ -8,13 +8,13 @@ namespace SolverLibrary
 {
     public class UserInput
     {
-        public string Code { get; set; }
+        public string InputText { get; set; }
 
         public string Display
         {
             get
             {
-                return Code;
+                return InputText;
             }
         }
     }

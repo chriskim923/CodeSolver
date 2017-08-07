@@ -8,6 +8,6 @@ namespace SolverLibrary
 {
     interface IDecoder
     {
-        string GetDecodedResults(UserInput code);
+        string GetDecodedResults(UserInput text);
     }
 }

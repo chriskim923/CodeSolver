@@ -8,7 +8,7 @@ namespace SolverLibrary
 {
     interface ICodingMethod
     {
-        string DecodeText(UserInput code);
-        string EncodeText(UserInput text);
+        string DecodeText();
+        string EncodeText();
     }
 }
