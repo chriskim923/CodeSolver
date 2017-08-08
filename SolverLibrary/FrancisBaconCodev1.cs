@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace SolverLibrary
 {
-    class FrancisBaconCodev1 : ICodingMethod
+    class FrancisBaconCodev1 : CodingMethodType
     {
-        private Dictionary<string, string> codeKey = new Dictionary<string, string>
+        public override int CodeLength => 5;
+        public override int CodeBase => 2;
+
+        public override Dictionary<string, string> CodeKey => new Dictionary<string, string>
         {
             {"00000", "A" },
             {"00001", "B" },
@@ -35,16 +38,5 @@ namespace SolverLibrary
             {"10110", "Y" },
             {"10111", "Z" }
         };
-
-        public string DecodeText(UserInput text)
-        {
-            return "a decoded string";
-        }
-
-        public string EncodeText(UserInput text)
-        {
-            return "an encoded string";
-        }
-
     }
 }

@@ -42,9 +42,9 @@
   <ItemGroup>
     <Compile Include="Decoder.cs" />
     <Compile Include="FrancisBaconCodev1.cs" />
-    <Compile Include="ICodingMethod.cs" />
-    <Compile Include="IDecoder.cs" />
+    <Compile Include="CodingMethodType.cs" />
     <Compile Include="InputCache.cs" />
+    <Compile Include="CodeParser.cs" />
     <Compile Include="UserInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

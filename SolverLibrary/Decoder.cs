@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace SolverLibrary
 {
-    public class Decoder : IDecoder
+    public class Decoder
     {
-        private readonly List<ICodingMethod> codingMethods;
+        private readonly List<CodingMethodType> codingMethods;
 
         public Decoder()
         {
-            codingMethods = new List<ICodingMethod>();
+            codingMethods = new List<CodingMethodType>();
             codingMethods.Add(new FrancisBaconCodev1());
         }
 
-        public string GetDecodedResults(UserInput code)
+        public string Decode(UserInput code)
         {
             return "a string to display";
         }
