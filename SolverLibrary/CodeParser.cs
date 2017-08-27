@@ -1,35 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace SolverLibrary
 {
-    static class CodeParser
+    public static class CodeParser
     {
-        public static List<string> Split(string text, int codeLength)
+        public static List<string> ParseIntoBitStrings(string codeText, int bitStringLength)
         {
-            var hashChar = '#';
-            var leftoverCharsIndicator = hashChar.ToString();
-
-            var words = text.Split(' ');
-            var splitCode = new List<string>();
+            var words = codeText.Split(' ');
+            var bitStrings = new List<string>();
             foreach (string word in words)
             {
-                for (var i = 0; i < word.Length; i += codeLength)
-                    if (i + codeLength <= word.Length)
-                        splitCode.Add(word.Substring(i, codeLength));
-                    else splitCode.Add(leftoverCharsIndicator);
-                splitCode.Add(" ");
+                for (var i = 0; i < word.Length; i += bitStringLength)
+                {
+                    if (i + bitStringLength <= word.Length)
+                        bitStrings.Add(word.Substring(i, bitStringLength));
+                    else bitStrings.Add(@"#");
+                }
+                bitStrings.Add("|");
             }
-            return splitCode;
+            bitStrings.RemoveAt(bitStrings.Count - 1);
+            return bitStrings;
         }
-
-        public static string Invert(string text, int codeBaseNumber)
-        {
-            return "inverted string";
-        }
-
     }
 }

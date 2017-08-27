@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SolverLibrary;
 
@@ -13,18 +7,28 @@ namespace CipherTool
 {
     public partial class SolverConsole : Form
     {
-        private InputCache cache = new InputCache();
-        BindingSource inputsBinding = new BindingSource();
+        private List<string> inputCache = new List<string>();
+        BindingSource inputBinding = new BindingSource();
 
         public SolverConsole()
         {
             InitializeComponent();
 
-            inputsBinding.DataSource = cache.Inputs;
-            inputsListbox.DataSource = inputsBinding;
+            //inputBinding.DataSource = inputCache;
+            inputBinding.DataSource = inputCache;
+            inputCacheComboBox.DataSource = inputBinding;
 
-            inputsListbox.DisplayMember = "Display";
-            inputsListbox.ValueMember = "Display";
+            this.originalDecodeResultsTable.View = View.Details;
+            this.originalDecodeResultsTable.GridLines = true;
+            this.originalDecodeResultsTable.Columns.Add("Coding Method", 250);
+            this.originalDecodeResultsTable.Columns.Add("Decoded String", 200);
+            this.originalDecodeResultsTable.Columns.Add("Parsed Code", 500);
+
+            this.invertedDecodeResultsTable.View = View.Details;
+            this.invertedDecodeResultsTable.GridLines = true;
+            this.invertedDecodeResultsTable.Columns.Add("Coding Method", 250);
+            this.invertedDecodeResultsTable.Columns.Add("Decoded String", 200);
+            this.invertedDecodeResultsTable.Columns.Add("Parsed Code", 500);
         }
 
         private void codeTextbox_KeyDown(object sender, KeyEventArgs e)
@@ -39,9 +43,47 @@ namespace CipherTool
 
         private void decodeButtonClick(object sender, EventArgs e)
         {
-            cache.Inputs.Add(new UserInput { InputText = this.codeTextbox.Text });
-            inputsBinding.ResetBindings(false);
+            var inputCode = this.codeTextbox.Text;
+
+            inputCache.Insert(0, inputCode);
+            inputBinding.ResetBindings(false);
             this.codeTextbox.Clear();
+
+            var invertedBinary = CodeInverter.TryInvert(inputCode, 2);
+            var invertedTernary = CodeInverter.TryInvert(inputCode, 3);
+
+            this.originalCodeDisplayLabel.Text = inputCode;
+            this.invertedBinaryCodeDisplayLabel.Text = invertedBinary;
+            this.invertedTernaryCodeDisplayLabel.Text = invertedTernary;
+
+            var decoder = new CodeDecoder();
+            List<string[]> originalDecodeResults = decoder.Decodify(inputCode);
+            List<string[]> invertedBinaryDecodeResults = decoder.Decodify(invertedBinary, CodeType.Binary);
+            List<string[]> invertedTernaryDecodeResults = decoder.Decodify(invertedTernary, CodeType.Ternary);
+
+            this.originalDecodeResultsTable.Items.Clear();
+            this.invertedDecodeResultsTable.Items.Clear();
+
+            this.PopulateListView(originalDecodeResults, this.originalDecodeResultsTable);
+            this.PopulateListView(invertedBinaryDecodeResults, this.invertedDecodeResultsTable);
+            this.PopulateListView(invertedTernaryDecodeResults, this.invertedDecodeResultsTable);
+        }
+
+        private void inputCacheComboBoxSelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedInput = inputCacheComboBox.SelectedItem.ToString();
+            this.codeTextbox.Text = selectedInput;
+            decodeButtonClick(sender, e);
+        }
+
+        private void PopulateListView(List<string[]> decodeResults, ListView listView)
+        {
+            foreach (var listItem in decodeResults)
+            {
+                ListViewItem item;
+                item = new ListViewItem(listItem);
+                listView.Items.Add(item);
+            }
         }
     }
 }

@@ -40,12 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Decoder.cs" />
-    <Compile Include="FrancisBaconCodev1.cs" />
-    <Compile Include="CodingMethodType.cs" />
-    <Compile Include="InputCache.cs" />
+    <Compile Include="ASCIIOctA101.cs" />
+    <Compile Include="CodeInverter.cs" />
+    <Compile Include="CodeDecoder.cs" />
+    <Compile Include="BinaryA00001.cs" />
+    <Compile Include="ASCIIDecimalA65.cs" />
+    <Compile Include="ASCIIHexA41.cs" />
+    <Compile Include="HexA01.cs" />
+    <Compile Include="TernaryA001.cs" />
+    <Compile Include="FrancisBaconv2.cs" />
+    <Compile Include="FrancisBaconv1.cs" />
+    <Compile Include="CodingMethod.cs" />
     <Compile Include="CodeParser.cs" />
-    <Compile Include="UserInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
